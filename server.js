@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
+import cors from 'cors'; // Import CORS
 
 // Load environment variables from the .env file
 dotenv.config();
@@ -21,6 +22,14 @@ const DOMAIN = process.env.DOMAIN;
 
 // Start Server
 const app = express();
+
+// CORS configuration
+app.use(cors({
+  origin: 'https://ecommerce-one-rho-19.vercel.app', // Front-end URL
+  methods: ['GET', 'POST'], // Allowed methods
+  credentials: true, // Enable if authentication is needed
+}));
+
 app.use(express.static('public')); // Serve static files from the public folder
 app.use(express.json()); // Parse incoming JSON requests
 
@@ -80,3 +89,4 @@ app.post('/stripe-checkout', async (req, res) => {
 app.listen(3000, () => {
   console.log('listening on port 3000;');
 });
+
