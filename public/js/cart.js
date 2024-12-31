@@ -1,7 +1,9 @@
 const payBtn = document.querySelector('.btn-buy');
 
 payBtn.addEventListener('click', () => {
-    fetch('http://localhost:3000/stripe-checkout', {
+    const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://ecommerce-elxx.vercel.app';
+
+    fetch(`${baseUrl}/stripe-checkout`, {
         method: 'POST',
         headers: new Headers({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
