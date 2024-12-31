@@ -1,7 +1,10 @@
 const payBtn = document.querySelector('.btn-buy');
 
 payBtn.addEventListener('click', () => {
-    fetch('http://localhost:3000/stripe-checkout', {
+    // Dynamically determine the base URL depending on environment
+    const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:3000' : 'https://ecommerce-elxx.vercel.app'; // replace with your actual Vercel URL
+
+    fetch(`${baseUrl}/stripe-checkout`, {
         method: 'POST',
         headers: new Headers({ 'Content-Type': 'application/json' }),
         body: JSON.stringify({
@@ -20,3 +23,4 @@ payBtn.addEventListener('click', () => {
     })
     .catch((err) => console.log(err));
 });
+
