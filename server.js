@@ -97,7 +97,10 @@ app.post('/stripe-checkout', async (req, res) => {
   }
 });
 
-// Start Listening
-app.listen(3000, () => {
-  console.log('listening on port 3000;');
+// Get the port from the environment or default to 3000 for local development
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
+
