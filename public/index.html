@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce Website With Payment</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Error message popup -->
+  <div id="error-message" style="display: none; color: red; position: fixed; top: 10%; left: 50%; transform: translateX(-50%); padding: 10px 20px; background-color: rgba(0, 0, 0, 0.7); color: white; border-radius: 5px; font-size: 16px;">
+    This item is already in your cart!
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="nav container">
+      <a href="#" class="logo">Ecommerce</a>
+      <!-- Updated Cart Icon -->
+      <div class="cart-container">
+        <i id="cart-icon" class="bx bx-shopping-bag cart-icon" data-quantity="0" aria-label="Cart"></i>
+      </div>
+      <!-- Cart -->
+      <div class="cart">
+        <i id="close-cart" class="bx bx-x" aria-label="Close Cart"></i>
+        <h2 class="cart-title">Your Cart</h2>
+        <!-- Content -->
+        <div class="cart-content">
+          <p class="empty-cart-message">Your cart is empty.</p>
+        </div>
+        <!-- Total -->
+        <div class="total">
+          <div class="total-title">Total</div>
+          <div class="total-price">$0.00</div>
+        </div>
+        <!-- Buy Button -->
+        <button type="button" class="btn-buy" aria-label="Pay Now">Pay Now</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Products Section -->
+  <section class="shop container">
+    <h2 class="section-title">Shop Products</h2>
+    <div class="shop-content">
+      <!-- Product 1 -->
+      <div class="product-box">
+        <img src="https://ae01.alicdn.com/kf/H28356ef8f0af4ae389f0e57763313734G/Sombreros-de-invierno-Unisex-URGENTMAN-Labal-gorros-de-punto-de-Color-s-lido-para-hombres-y.jpg_640x640.jpg_.webp" alt="Ultimate Hat" class="product-img" />
+        <h2 class="product-title">ULTIMATE HAT</h2>
+        <span class="price">$19.99</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-box">
+        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f8dfa191-60b3-44c1-b730-b25e0a908c35/air-force-1-07-easyon-shoes-vpmlK3.png" alt="Air Force 1 White Shoes" class="product-img" />
+        <h2 class="product-title">AIR FORCE 1 WHITE</h2>
+        <span class="price">$90.00</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-box">
+        <img src="https://www.homedecorous.com/image/cache/catalog/1September/S041/41-550x550h.jpg" alt="Saturday Backpack" class="product-img" />
+        <h2 class="product-title">TRAVEL BACKPACK</h2>
+        <span class="price">$68.83</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-box">
+        <img src="https://knickknax.com/cdn/shop/files/IMG-2418.webp?v=1706003338&width=1445" alt="Tactical Jacket" class="product-img" />
+        <h2 class="product-title">TACTICAL JACKET</h2>
+        <span class="price">$30.00</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 5 -->
+      <div class="product-box">
+        <img src="https://a-static.mlcdn.com.br/800x560/garrafa-termica-inox-a-vacuo-termometro-display-led-800-ml-bottle-sport/vivendoainovacao/16038966312/a8387a6d347160aba5ba2922e7d5a222.jpeg" alt="Travel Cup" class="product-img" />
+        <h2 class="product-title">TRAVEL CUP</h2>
+        <span class="price">$24.99</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 6 -->
+      <div class="product-box">
+        <img src="https://ae01.alicdn.com/kf/S1c5ed7f7e217414da6884b39cab8e133u/Comfortable-Men-Casual-Shoes-Breathable-Mesh-Summer-Men-Shoes-New-Non-slip-Lightweight-Shoes-for-Men.jpg" alt="Comfortable Men Casual Shoes" class="product-img" />
+        <h2 class="product-title">COMFORT MENS CASUAL SHOES</h2>
+        <span class="price">$38.00</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 7 -->
+      <div class="product-box">
+        <img src="https://i.pinimg.com/736x/5e/23/5a/5e235a7ec66d4527ecb21895faa1f8fa.jpg" alt="Brown Leather Jacket" class="product-img" />
+        <h2 class="product-title">BROWN LEATHER JACKET</h2>
+        <span class="price">$60.00</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+      <!-- Product 8 -->
+      <div class="product-box">
+        <img src="https://ae01.alicdn.com/kf/S32f1f70c1295460bac116ec6fe8d0a7a2/Summer-New-Men-s-Short-Sleeve-T-shirt-Cool-and-Breathable-POLO-Shirt-Business-Casual-Sweat.jpg_.webp" alt="Short Sleeve T-Shirt" class="product-img" />
+        <h2 class="product-title">SHORT SLEEVE T-SHIRT</h2>
+        <span class="price">$28.99</span>
+        <i class="bx bx-shopping-bag add-cart" aria-label="Add to Cart"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Include JavaScript -->
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
