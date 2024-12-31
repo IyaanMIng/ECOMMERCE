@@ -27,7 +27,8 @@ const app = express();
 app.use(cors({
     origin: (origin, callback) => {
         const allowedOrigins = [
-            'https://ecommerce-vhg5.vercel.app',  // Add your frontend Vercel URL
+            'https://ecommerce-m681.vercel.app',  // Add the new frontend Vercel URL here
+            'https://ecommerce-vhg5.vercel.app',  // Previous Vercel URL
             'https://ecommerce-one-rho-19.vercel.app',
             'http://localhost:3000',
         ];
@@ -40,6 +41,7 @@ app.use(cors({
     methods: ['GET', 'POST'],
     credentials: true,
 }));
+
 
 app.use(express.static('public')); // Serve static files from the public folder
 app.use(express.json()); // Parse incoming JSON requests
