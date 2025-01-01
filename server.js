@@ -23,23 +23,14 @@ const DOMAIN = process.env.DOMAIN;
 // Start Server
 const app = express();
 
-// CORS configuration
+// Updated CORS configuration
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedOrigins = [
-      'https://ecommerce-m681.vercel.app',
-      'https://ecommerce-vhg5.vercel.app',
-      'https://ecommerce-one-rho-19.vercel.app',
-      'http://localhost:3000',
-    ];
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ['GET', 'POST'], // Allowed methods
-  credentials: true, // Enable if authentication is needed
+  origin: [
+    'https://ecommerce-2-lak9.onrender.com',  // Your frontend domain on Render
+    'http://localhost:3000',  // Localhost for development
+  ],
+  methods: ['GET', 'POST'],
+  credentials: true,
 }));
 
 app.use(express.static('public')); // Serve static files from the public folder
@@ -97,9 +88,8 @@ app.post('/stripe-checkout', async (req, res) => {
   }
 });
 
-// Get the port from the environment or default to 3000 for local development
+// Start Listening
 const port = process.env.PORT || 3000;
-
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
